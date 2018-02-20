@@ -1,8 +1,9 @@
 from Quick_Sort import QuickSort
 from InsertionSort import Insertion_sort
+from BubleSort import bubble_sort
 import time
 import random
-RequaredRanges = [100000]
+RequaredRanges = [10000]
 #RequaredRanges = [10, 100, 500, 1000, 100000, 500000, 1000000, 10000000]
 index = 0
 def WriteNumbersinFile(n):
@@ -45,6 +46,12 @@ for x in range(0, 1):
         print(t4)
 
         print("Insertions Sort")
+        print(RequaredRanges[x])
+        t1 = time.time()
+        print(Insertion_sort(HatMenFile()))
+        t2 = time.time() - t1
+        print(t2)
+        print("Buble Sort")
         print(RequaredRanges[x])
         t1 = time.time()
         print(Insertion_sort(HatMenFile()))
