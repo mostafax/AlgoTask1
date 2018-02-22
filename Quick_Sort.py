@@ -1,3 +1,5 @@
+import sys
+sys.setrecursionlimit(2000)
 def QuickSort(Array):
     DoQuickSort(Array,0,len(Array)-1)
 

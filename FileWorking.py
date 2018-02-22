@@ -1,9 +1,12 @@
 from Quick_Sort import QuickSort
 from InsertionSort import Insertion_sort
 from BubleSort import bubble_sort
+from Selection_Sort import SelectionSort
+import sys
+from Merge_Sort import merge_sort
 import time
 import random
-RequaredRanges = [10000]
+RequaredRanges = [10000000]
 #RequaredRangesSmall = [10, 100, 500, 1000,10000,100000, 500000, 1000000, 10000000]
 index = 0
 def WriteNumbersinFile(n):
@@ -28,39 +31,33 @@ def HatMenFile():
     for Number in x:
         Number
     Sub= Number.split(" ")
-
-    #print(Sub)
     x.close()
     return Sub
 
 
+
+
 WriteNumbersinFile(RequaredRanges)
-fes = HatMenFile()
-es  = HatMenFile()
-bs= HatMenFile()
+#fes = HatMenFile()
+#es  = HatMenFile()
+
+MG = HatMenFile()
+AK = MG
 for x in range(0, 1):
-        WriteResult = open("Result.txt" ,"w")
+        WriteResult = open("Result.txt" ,"a")
 
         WriteResult.write("QuickSort\n")
         WriteResult.write(str(RequaredRanges[x])+'\n')
         t3 = time.time()
 
-        QuickSort(fes)
+        QuickSort(AK)
         t4 = time.time() - t3
         WriteResult.write(str(t4)+'\n')
 
-        WriteResult.write("Buble Sort"+'\n')
+        WriteResult.write("MergeSort\n")
         WriteResult.write(str(RequaredRanges[x])+'\n')
-        t5 = time.time()
-        bubble_sort(bs)
-        t6 = time.time() - t5
-        WriteResult.write(str(t6)+'\n')
-
-
-        WriteResult.write("Insertions Sort\n")
-        WriteResult.write(str(RequaredRanges[x])+'\n')
-        t1 = time.time()
-        Insertion_sort(es)
-        t2 = time.time() - t1
-        WriteResult.write(str(t2)+'\n')
+        T4 = time.time()
+        merge_sort(MG)
+        T7 = time.time()-T4
+        WriteResult.write(str(T7)+'\n')
 
