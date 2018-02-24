@@ -1,14 +1,12 @@
-def SelectionSort(SortList): 
- for i in range(len(SortList)):
+#(selection_sort) function on list returen the sorted version of it.
 
-    # Find the minimum element in remSortListining 
-    # unsorted SortList
-    min_idx = i
-    for j in range(i + 1, len(SortList)):
-        if SortList[min_idx] > SortList[j]:
-            min_idx = j
-
-    # SwSortListp the found minimum element with 
-    # the first element        
-    SortList[i], SortList[min_idx] = SortList[min_idx], SortList[i]
- return SortList
+def selection_sort(a):
+    sort_len=0               #length of current sorted portion.
+    while sort_len<len(a):
+        min_idx=None         #index of smallest item found.
+        for i,elem in enumerate(a[sort_len:]):
+            if min_idx==None or elem<a[min_idx]:          #check if current element is the smallest
+                min_idx=i+sort_len                        #update with current smallest
+        a[sort_len],a[min_idx]=a[min_idx],a[sort_len]
+        sort_len+=1
+    return a
