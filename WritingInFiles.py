@@ -6,9 +6,12 @@ import sys
 from Merge_Sort import merge_sort
 import time
 import random
-RequaredRanges = [10000000]
-#RequaredRanges = [10, 100, 500, 1000,10000,100000, 500000, 1000000, 10000000]
+from ReadingFromFiles import HatMenFileSmall
+#RequaredRanges = [10000000]
+RequaredRanges = [10, 100, 500, 1000,10000,100000]
+RequaredRangesBig = [ 1000000, 10000000]
 index = 0
+indexBig =0
 
 def WriteNumbersinFileSmall(n):
     global index
@@ -26,11 +29,23 @@ def WriteNumbersinFileSmall(n):
      index=0
     else:index+=1
 
-def WriteNumbersinFileBig(n):
-    global index
-    Randomied = []
+def WriteNumbersinFileBig():
+
     #Generating Random Numbers
-    Number = n[index]
+    Number = 1000000
+    Write = open("LargeNumbers.txt",'a')
+    Write.write(str(Number)+"\n")
+    for x in range(0,Number):
+        if x<Number-1:
+         Write.write((str(random.randint(1,10000))+" "))
+        else:
+            Write.write((str(random.randint(1, 10000)))+"\n")
+
+
+def WriteNumbersinFileVBig():
+
+    #Generating Random Numbers
+    Number = 10000000
     Write = open("VLargeNumbers.txt",'a')
     Write.write(str(Number)+"\n")
     for x in range(0,Number):
@@ -38,46 +53,25 @@ def WriteNumbersinFileBig(n):
          Write.write((str(random.randint(1,10000))+" "))
         else:
             Write.write((str(random.randint(1, 10000)))+"\n")
-    if index==8:
-     index=0
-    else:index+=1
 
 
 
-def HatMenFile():
-    x = open("Small_Numbers.txt", 'r')
 
-    for Number in x:
-        Number
-    Sub= Number.split(" ")
-    x.close()
-    return Sub
 
 
 
 
 #WriteNumbersinFileSmall(RequaredRanges)
-WriteNumbersinFileBig(RequaredRanges)
+
 #fes = HatMenFile()
 #es  = HatMenFile()
 
-MG = HatMenFile()
-AK = MG
-for x in range(0, 1):
-        WriteResult = open("Result.txt" ,"a")
+def Generate_to_100000():
+  for x in range(0, 6):
+        WriteNumbersinFileSmall(RequaredRanges)
 
-        WriteResult.write("QuickSort\n")
-        WriteResult.write(str(RequaredRanges[x])+'\n')
-        t3 = time.time()
 
-        #QuickSort(AK)
-        t4 = time.time() - t3
-        WriteResult.write(str(t4)+'\n')
-
-        WriteResult.write("MergeSort\n")
-        WriteResult.write(str(RequaredRanges[x])+'\n')
-        T4 = time.time()
-        #merge_sort(MG)
-        T7 = time.time()-T4
-        WriteResult.write(str(T7)+'\n')
+#Generate_to_100000() #Done
+#WriteNumbersinFileBig() #Done
+#WriteNumbersinFileVBig() #Done
 
